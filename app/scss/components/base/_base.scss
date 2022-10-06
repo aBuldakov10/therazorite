@@ -14,17 +14,9 @@
 body {
   min-height: 100vh;
   min-width: 320px;
-  font-family: $montserrat;
+  font-family: $main-font;
   font-size: $mob-base-font+px;
-  line-height: 1.5;
-
-  @include media(min, $md) {
-    font-size: $tab-base-font+px;
-  }
-
-  @include media(min, $lg) {
-    font-size: $desc-base-font+px;
-  }
+  line-height: 1.3;
 }
 
 main {
@@ -36,157 +28,7 @@ a {
   transition: .2s ease;
 
   &:hover {
-    color: $link-hover-clr;
-  }
-}
-
-// Table
-.table-wrapper {
-  margin: 50px 0;
-  overflow-x: auto;
-
-  table {
-    margin: 0;
-  }
-}
-
-table {
-  margin: 50px auto;
-  min-width: 700px;
-  border-collapse: collapse;
-  border: 1px solid;
-  box-shadow: 0 0 4px 0 #a5a5a5;
-
-  thead {
-    background: #8884cc;
-  }
-
-  tbody {
-    background: #ccc7ef;
-
-    tr {
-      &:nth-child(even) {
-        background: #a8a2d0;
-      }
-    }
-  }
-
-  td,
-  th {
-    padding: 20px;
-    border: 1px solid;
-  }
-}
-
-// Form style
-.form {
-  margin: 30px 0;
-}
-
-legend {
-  padding: 0 10px;
-}
-
-.form__group:not(:last-child) {
-  margin-bottom: 20px;
-}
-
-// Custom form radio and checkbox
-.form-radio__input,
-.form-radio__label,
-.form-checkbox__input,
-.form-checkbox__label {
-  @include media(min, $lg) {
-    cursor: pointer;
-  }
-}
-
-.form-radio,
-.form-checkbox {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-.form-radio__input,
-.form-checkbox__input {
-  width: 20px;
-  height: 20px;
-  appearance: none;
-  border: 1px solid $border-clr;
-}
-
-.form-radio__label,
-.form-checkbox__label {
-  padding-left: 10px;
-}
-
-.form-radio__input {
-  border-radius: 50%;
-
-  &:checked {
-    border: 1px solid #0174fd;
-
-    & + .form-radio__label {
-      &:before {
-        @include pseudo();
-        transform: translateY(-50%);
-        top: 50%;
-        left: 4px;
-        width: 12px;
-        height: 12px;
-        background: #0174fd;
-        border-radius: 50%;
-      }
-    }
-  }
-}
-
-.form-checkbox__input {
-  border-radius: 4px;
-
-  &:checked {
-    border: 1px solid #0174fd;
-
-    & + .form-checkbox__label {
-      &:before {
-        @include pseudo();
-        transform: translateY(-50%) rotate(315deg);
-        top: 42%;
-        left: 3px;
-        width: 14px;
-        height: 6px;
-        border-left: 2px solid #0174fd;
-        border-bottom: 2px solid #0174fd;
-      }
-    }
-  }
-}
-
-select,
-textarea,
-input[type="text"],
-input[type="number"],
-input[type="password"] {
-  padding: 10px;
-  width: 100%;
-  border: 1px solid $border-clr;
-  border-radius: 4px;
-}
-
-// Video, google map, iframe
-.video-wrapper,
-.iframe-wrapper,
-.responsive-wrapper {
-  position: relative;
-  padding-top: 50%;
-
-  iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    //color: $link-hover-clr;
   }
 }
 
@@ -200,7 +42,6 @@ input[type="password"] {
 
 // Custom general layout style for all pages in project
 .container {
-  max-width: 1295px;
-  padding: 0 20px;
-  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 65px;
 }

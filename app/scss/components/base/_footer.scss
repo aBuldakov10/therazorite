@@ -5,35 +5,6 @@ footer {
   background-color: #4d0d5a;
 }
 
-.footer__item-wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  margin: 0 -20px;
-}
-
-.footer__item {
-  flex: 1 1 100%;
-  margin-bottom: 20px;
-  padding: 0 20px;
-  text-align: left;
-
-  @include media (min, $sm) {
-    flex: 1 1 50%;
-  }
-
-  @include media (min, $lg) {
-    flex: 1 1 25%;
-  }
-}
-
-.footer-menu__title {
-  display: block;
-  margin-bottom: 1em;
-  @include font-size(22);
-  font-weight: $semi-bold;
-}
-
 // Social
 .social-block {
   display: flex;

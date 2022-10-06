@@ -3,21 +3,14 @@
 $sans: 'Helvetica', 'Verdana', 'Arial', sans-serif;
 
 // ------- Custom fonts -------
-$montserrat: 'Montserrat', $sans;
+$main-font: 'Noir Pro', $sans;
 
 // Fonts sizes
-$mob-base-font: 14;
-$tab-base-font: 16;
-$desc-base-font: 18;
+$mob-base-font: 20;
 
 // Fonts weight
 $light: 300;
-$regular: 400;
-$medium: 500;
-$semi-bold: 600;
 $bold: 700;
-$extra-bold: 800;
-$black: 900;
 
 // Breakpoints
 $xs: 375;
@@ -28,6 +21,13 @@ $xl: 1200;
 $xxl: 1400;
 
 //Colors
-$border-clr: #767676;
-$link-hover-clr: #0014ff;
-$active-clr: #c8cdff;
+$main-clr: #727272;
+$second-clr: #f36a1d;
+
+$txt-title: #393939;
+$txt-main: #727272;
+$txt-bg: #fff;
+
+$bg: #393939;
+
+$logo-clr: #6f6f6f;
