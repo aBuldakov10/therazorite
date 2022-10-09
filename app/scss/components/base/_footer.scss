@@ -1,9 +1,13 @@
 .footer {
   position: fixed;
   right: 0;
-  bottom: 40px;
+  bottom: 20px;
   z-index: 1;
   color: $txt-main;
+
+  @include media(min, $lg) {
+    bottom: 40px;
+  }
 }
 
 // Social
@@ -21,11 +25,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 45px;
-    height: 45px;
+    width: 30px;
+    height: 30px;
     color: inherit;
 
     @include media(min, $lg) {
+      width: 45px;
+      height: 45px;
+
       &:hover {
         color: $second-clr;
       }

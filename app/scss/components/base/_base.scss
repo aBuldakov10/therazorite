@@ -44,7 +44,11 @@ a {
 // Custom general layout style for all pages in project
 .container {
   max-width: 100%;
-  padding: 0 65px;
+  padding: 0 15px;
+
+  @include media(min, $lg) {
+    padding: 0 65px;
+  }
 }
 
 // Likes block
@@ -54,14 +58,19 @@ a {
     align-items: center;
     justify-content: center;
     margin: 0 auto 15px;
-    width: 72px;
-    height: 72px;
+    width: 55px;
+    height: 55px;
     background: rgba(153, 153, 153, .2);
     backdrop-filter: blur(2px);
     color: inherit;
     border: 0;
     cursor: pointer;
     transition: .2s ease;
+
+    @include media(min, $lg) {
+      width: 72px;
+      height: 72px;
+    }
 
     &:hover {
       background-color: rgba(243, 106, 29, .1);
@@ -70,13 +79,17 @@ a {
 
     &:active {
       color: $second-clr;
-      background-color: transparent;
+      //background-color: transparent;
     }
   }
 
   &__content {
-    font-size: 32px;
+    font-size: 20px;
     font-style: italic;
+
+    @include media(min, $lg) {
+      font-size: 32px;
+    }
   }
 
   &__counter {

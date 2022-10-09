@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   /*** Slider ***/
-  const slideCaptions = document.querySelector('.main-slider__captions');
+  const slideCaptions = document.querySelector('.main-slider__captions .container');
 
   const mainSlider = new Swiper('.js-slider', {
     watchOverflow: true,
@@ -27,8 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const slideTitle = this.slides[this.activeIndex].firstElementChild.getAttribute('data-title');
         const slideSubTitle = this.slides[this.activeIndex].firstElementChild.getAttribute('data-subtitle');
 
-        slideCaptions.innerHTML = `<div class="main-slider__title main-slider__title_captured">${slideTitle}</div>
-                                   <div class="main-slider__subtitle">${slideSubTitle}</div>`;
+        slideCaptions.innerHTML = `<div class="main-slider__title main-slider__title_captured" style="display: -webkit-box; -webkit-line-clamp: 2;" title="${slideTitle}">
+                                      <span>${slideTitle}</span>
+                                   </div>
+                                   <div class="main-slider__subtitle" style="display: -webkit-box; -webkit-line-clamp: 4;">${slideSubTitle}</div>`;
         }
     }
   });
@@ -37,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const firstSlideTitle = mainSlider.slides[mainSlider.activeIndex].firstElementChild.getAttribute('data-title');
   const firstSlideSubTitle = mainSlider.slides[mainSlider.activeIndex].firstElementChild.getAttribute('data-subtitle');
 
-  slideCaptions.innerHTML = `<div class="main-slider__title main-slider__title_captured">${firstSlideTitle}</div>
-                             <div class="main-slider__subtitle">${firstSlideSubTitle}</div>`;
+  slideCaptions.innerHTML = `<div class="main-slider__title main-slider__title_captured" style="display: -webkit-box; -webkit-line-clamp: 2;" title="${firstSlideTitle}">
+                                <span>${firstSlideTitle}</span>
+                             </div>
+                             <div class="main-slider__subtitle" style="display: -webkit-box; -webkit-line-clamp: 4;">${firstSlideSubTitle}</div>`;
 });

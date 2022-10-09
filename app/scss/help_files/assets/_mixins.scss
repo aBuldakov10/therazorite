@@ -31,20 +31,14 @@
 @mixin media ($extremum, $width, $extremum1: '', $width1: '') {
   // if max-width with default breakpoints
   @if ($extremum == 'max' and ($width == $xs or
-                               $width == $sm or
                                $width == $md or
-                               $width == $lg or
-                               $width == $xl or
-                               $width == $xxl)) {
+                               $width == $lg)) {
     $width: $width - 1
   }
 
   @if ($extremum1 == 'max' and ($width1 == $xs or
-                                $width1 == $sm or
                                 $width1 == $md or
-                                $width1 == $lg or
-                                $width1 == $xl or
-                                $width1 == $xxl)) {
+                                $width1 == $lg)) {
     $width1: $width1 - 1
   }
 
@@ -58,9 +52,4 @@
       @content
     }
   }
-}
-
-//Font size
-@mixin font-size ($size) {
-  font-size: ($size/$desc-base-font)*1rem;
 }
