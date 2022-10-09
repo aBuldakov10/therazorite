@@ -1,5 +1,8 @@
 .footer {
-  position: relative;
+  position: fixed;
+  right: 0;
+  bottom: 40px;
+  z-index: 1;
   color: $txt-main;
 }
 
@@ -9,9 +12,6 @@
   justify-content: flex-end;
   flex-direction: column;
   gap: 20px 15px;
-  position: fixed;
-  bottom: 40px;
-  right: 65px;
 
   @include media(min, $md) {
     flex-direction: row;

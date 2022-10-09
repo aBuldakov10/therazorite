@@ -6,7 +6,49 @@
 <!-- include header -->
 @include('assets/_header.html', {})
 
-<main role="main"></main>
+<main role="main">
+  <div class="js-slider main-slider swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="main-slider__item" data-title="the razorite" data-subtitle="BMW i8 concept <br> supported by <br> Alpine <br> Yokohama" style="background-image: url('img/image-1.jpg')">
+          <div class="container">
+            <div class="main-slider__title">the razorite</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="swiper-slide">
+        <div class="main-slider__item" data-title="01" data-subtitle="//////////" style="background-image: url('img/image-2.jpg')">
+          <div class="container">
+            <div class="main-slider__title">01</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="swiper-slide">
+        <div class="main-slider__item" data-title="02" data-subtitle="////////////////////" style="background-image: url('img/image-3.jpg')">
+          <div class="container">
+            <div class="main-slider__title">02</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="main-slider__captions"></div>
+  
+    <div class="main-slider__likes like">
+      <button class="like__icon">@include('assets/_svg.html', {"svgId": "like"})</button>
+      
+      <div class="like__content">
+        <span class="like__text">like:</span>
+        <span class="like__counter">330</span>
+      </div>
+    </div>
+    
+    <div class="swiper-button swiper-button-prev">@include('assets/_svg.html', {"svgId": "arrow-left"})</div>
+    <div class="swiper-button swiper-button-next">@include('assets/_svg.html', {"svgId": "arrow-right"})</div>
+  </div>
+</main>
 
 <!-- include footer -->
 @include('assets/_footer.html', {})

@@ -22,7 +22,7 @@ let path = {
   src: {
     html: ['app/templates_html/*.html', '!app/templates_html/assets/_*.html'],
     scss: 'app/scss/**/main.scss',
-    js: ['app/js/main.js'],
+    js: ['app/js/swiper-bundle.min.js', 'app/js/main.js'],
     img: 'app/img/**/*.*',
     fonts_woff: ['app/fonts/**/*.*']
   },
