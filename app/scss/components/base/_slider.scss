@@ -110,7 +110,7 @@
     transition: .2s ease;
 
     @include media(min, $lg) {
-      &:hover {
+      &:not(.swiper-button-disabled):hover {
         color: $second-clr;
       }
     }
@@ -140,14 +140,12 @@
 
     &-disabled {
       opacity: .5;
-      pointer-events: none;
+      cursor: auto;
     }
   }
 
   &-creative .swiper-slide {
     &-active {
-      z-index: 2!important;
-
       & .main-slider__title {
         opacity: 1;
       }
