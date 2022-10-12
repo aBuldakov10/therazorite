@@ -4,18 +4,18 @@
   "description": "",
   "main": "gulpfile.js",
   "dependencies": {
+    "@babel/polyfill": "^7.12.1",
     "gulp": "^4.0.2",
     "gulp-uglify": "^3.0.2",
     "postcss-unprefix": "^2.1.4"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/plugin-transform-runtime": "^7.19.1",
+    "@babel/preset-env": "^7.19.3",
+    "@babel/runtime": "^7.18.3",
     "autoprefixer": "^7.0.1",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.26.7",
     "css-mqpacker": "^7.0.0",
     "gulp": "^4.0.2",
@@ -29,13 +29,17 @@
     "gulp-sass": "^4.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-webp": "^4.0.1",
-    "gulp-webp-html": "^1.0.2"
+    "gulp-webp-html": "^1.0.2",
+    "prettier": "^2.7.1"
   },
   "browserslist": [
     "last 2 version",
     "> 1%",
     "not op_mini all"
   ],
+  "prettier": {
+    "singleQuote": true
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
