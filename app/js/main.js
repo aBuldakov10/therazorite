@@ -24,8 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const createSlideItem = data.map(({ id, title, desc, likeCnt, imgUrl }) => {
       const li = document.createElement('div');
 
+      const isImg = () => {
+        if (imgUrl) {
+          return imgUrl;
+        } else {
+          return '/img/error.svg';
+        }
+      };
+
       li.classList.add('swiper-slide');
-      li.innerHTML = `<div class="main-slider__item" data-id="${id}" data-title="${title}" data-subtitle="${desc}" data-like-count="${likeCnt}" style="background-image: url('${imgUrl}')">
+      li.innerHTML = `<div class="main-slider__item" data-id="${id}" data-title="${title}" data-subtitle="${desc}" data-like-count="${likeCnt}" style="background-image: url('${isImg()}')">
                             <div class="container">
                               <div class="main-slider__title" style="display: -webkit-box; -webkit-line-clamp: 2;" title="${title}">${title}</div>
                             </div>
