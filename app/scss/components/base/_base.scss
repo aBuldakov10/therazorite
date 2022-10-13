@@ -18,19 +18,11 @@ body {
   font-size: $mob-base-font+px;
   line-height: 1.3;
   color: $txt-main;
+  letter-spacing: .05em;
 }
 
 main {
   min-height: calc(100vh - 184px);
-}
-
-a {
-  text-decoration: none;
-  transition: .2s ease;
-
-  &:hover {
-    //color: $link-hover-clr;
-  }
 }
 
 .hidden {
@@ -79,7 +71,13 @@ a {
 
     &:active {
       color: $second-clr;
-      //background-color: transparent;
+      background-color: transparent;
+    }
+
+    &[data-is-liked="true"] {
+      pointer-events: none;
+      background-color: rgba(243, 106, 29, .1);
+      color: $second-clr;
     }
   }
 

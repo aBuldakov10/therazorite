@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const likeCaptions = document.querySelector(
     '.main-slider__captions .like__counter'
   );
+  const likeBtn = document.querySelector('.js-like-btn');
   const api = 'https://private-57b4e3-grchhtml.apiary-mock.com/slides';
   let offset = 0;
   let limit = 3;
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Init slider
     new Swiper('.js-slider', {
       on: {
-        init: function () {
+        init: function we() {
           // Set caption for first slider on load
           const firstSlideTitle =
             this.slides[this.activeIndex].firstElementChild.getAttribute(
@@ -66,10 +67,26 @@ document.addEventListener('DOMContentLoaded', () => {
               'data-like-count'
             );
 
+          const firstSlideId =
+            this.slides[this.activeIndex].firstElementChild.getAttribute(
+              'data-id'
+            );
+          const isInStorage = sessionStorage.getItem(
+            `slide_id_${firstSlideId}`
+          );
+
           titleCaptions.innerHTML = `<span>${firstSlideTitle}</span>`;
-          titleCaptions.setAttribute('title', `${firstSlideTitle}`);
+          titleCaptions.setAttribute('title', firstSlideTitle);
+          likeBtn.setAttribute('data-slider-id', firstSlideId);
           subTitleCaptions.innerHTML = firstSlideSubTitle;
-          likeCaptions.innerHTML = firstSlideLikeCount;
+
+          if (isInStorage !== null) {
+            likeBtn.setAttribute('data-is-liked', true);
+            likeCaptions.innerHTML = isInStorage;
+          } else {
+            likeBtn.setAttribute('data-is-liked', false);
+            likeCaptions.innerHTML = firstSlideLikeCount;
+          }
         },
       },
     });
@@ -155,22 +172,84 @@ document.addEventListener('DOMContentLoaded', () => {
           this.slides[this.activeIndex].firstElementChild.getAttribute(
             'data-like-count'
           );
+        const slideId =
+          this.slides[this.activeIndex].firstElementChild.getAttribute(
+            'data-id'
+          );
+        const isInStorage = sessionStorage.getItem(`slide_id_${slideId}`);
 
         titleCaptions.innerHTML = `<span>${slideTitle}</span>`;
-        titleCaptions.setAttribute('title', `${slideTitle}`);
+        titleCaptions.setAttribute('title', slideTitle);
+        likeBtn.setAttribute('data-slider-id', slideId);
         subTitleCaptions.innerHTML = slideSubTitle;
-        likeCaptions.innerHTML = slideLikeCount;
+
+        if (isInStorage !== null) {
+          likeBtn.setAttribute('data-is-liked', true);
+          likeCaptions.innerHTML = isInStorage;
+        } else {
+          likeBtn.setAttribute('data-is-liked', false);
+          likeCaptions.innerHTML = slideLikeCount;
+        }
       },
     },
   });
 
   /*** Likes ***/
-  // const likeBtn = document.querySelector('.js-like');
-  // const popup = document.querySelector('.popup');
-  // const body = document.querySelector('body');
+  const fetchLikes = async (id) => {
+    const data = await fetch(
+      `https://private-anon-fdd21b419b-grchhtml.apiary-mock.com/slides/${id}/like`,
+      {
+        method: 'POST',
+        body: { id: id },
+      }
+    );
 
-  // likeBtn.addEventListener('click', () => {
-  //   popup.classList.remove('hidden');
-  // body.classList.add('no-scroll');
-  // });
+    return await data.json();
+  };
+
+  const body = document.querySelector('body');
+  const likePopup = document.querySelector('.js-like-popup');
+  const likePopupTitle = document.querySelector('.js-like-popup .popup__title');
+  const likePopupDesc = document.querySelector('.js-like-popup .popup__text');
+  const likePopupClose = document.querySelector('.js-like-popup .popup__close');
+
+  // Like button click
+  likeBtn.addEventListener('click', function () {
+    const thisId = this.getAttribute('data-slider-id');
+    const isLikedSlide = this.getAttribute('data-is-liked');
+    const thisLikeCounter = +likeCaptions.textContent;
+
+    if (isLikedSlide === 'true') {
+      return false;
+    }
+
+    fetchLikes(thisId).then(({ title, desc }) => {
+      likePopupTitle.innerHTML = title;
+      likePopupDesc.innerHTML = desc;
+      likePopup.classList.remove('hidden');
+      body.classList.add('no-scroll');
+
+      sessionStorage.setItem(`slide_id_${thisId}`, `${thisLikeCounter + 1}`);
+      likeCaptions.textContent = (thisLikeCounter + 1).toString();
+
+      this.setAttribute('data-is-liked', true);
+    });
+  });
+
+  // Hide popup on close click
+  likePopupClose.addEventListener('click', () => {
+    likePopup.classList.add('hidden');
+    body.classList.remove('no-scroll');
+  });
+
+  // Hide popup on click out of close button
+  likePopup.addEventListener('click', function (e) {
+    const popupContent = document.querySelector('.popup__content-wrapper');
+    const withinBoundaries = e.composedPath().includes(popupContent);
+
+    if (!withinBoundaries) {
+      likePopup.classList.add('hidden');
+      body.classList.remove('no-scroll');
+    }
+  });
 });

@@ -16,7 +16,7 @@
         <div class="main-slider__subtitle" style="display: -webkit-box; -webkit-line-clamp: 4;"></div>
   
         <div class="main-slider__likes like">
-          <button class="js-like like__icon" type="button">@include('assets/_svg.html', {"svgId": "like"})</button>
+          <button class="js-like-btn like__icon" type="button" data-slider-id="" data-is-liked="false">@include('assets/_svg.html', {"svgId": "like"})</button>
     
           <div class="like__content">
             <span class="like__text">like:</span>
@@ -38,15 +38,12 @@
 @include('assets/_footer_scripts.html', {})
 
 <!-- popup -->
-<!--<div class="popup hidden">-->
-<!--  <div class="popup__content-wrapper">-->
-<!--    <div class="popup__title">BMW i8</div>-->
-<!--    <div class="popup__text">-->
-<!--      BMW Vision Efficient Dynamics, BMW i8 — автомобиль компании BMW. Концепт-кар был представлен в 2009 году, первый серийный образец — на Франкфуртском автосалоне в сентябре 2013 года-->
-<!--      <br>-->
-<!--      BMW Vision Efficient Dynamics представляет собой полноприводное двухдверное купе. Шасси и подвеска сделаны из алюминия, крыша и двери выполнены из поликарбоната. Коэффициент аэродинамического сопротивления 0,26.</div>-->
-<!--    <div class="popup__close">@include('assets/_svg.html', {"svgId": "close"})</div>-->
-<!--  </div>-->
-<!--</div>-->
+<div class="js-like-popup popup hidden">
+  <div class="popup__content-wrapper">
+    <div class="popup__title"></div>
+    <div class="popup__text"></div>
+    <div class="popup__close">@include('assets/_svg.html', {"svgId": "close"})</div>
+  </div>
+</div>
 </body>
 </html>
